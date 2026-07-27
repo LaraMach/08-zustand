@@ -15,7 +15,7 @@ interface NoteFormValues {
 }
 
 interface NoteFormProps {
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 const initialValues: NoteFormValues = {
@@ -48,7 +48,7 @@ function NoteForm({ onClose }: NoteFormProps) {
         queryKey: ["notes"],
       });
 
-      onClose();
+      onClose?.();
     },
   });
 
@@ -92,7 +92,11 @@ function NoteForm({ onClose }: NoteFormProps) {
         </div>
 
         <div className={css.actions}>
-          <button type="button" className={css.cancelButton} onClick={onClose}>
+          <button
+            type="button"
+            className={css.cancelButton}
+            onClick={() => onClose?.()}
+          >
             Cancel
           </button>
 

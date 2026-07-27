@@ -6,11 +6,24 @@ import {
 
 import { fetchNoteById } from "@/lib/api";
 import NoteDetailsClient from "./NoteDetails.client";
+import type { Metadata } from "next";
 
 interface NoteDetailsPageProps {
   params: Promise<{
     id: string;
   }>;
+}
+
+export async function generateMetadata({
+  params,
+}: NoteDetailsPageProps): Promise<Metadata> {
+  const { id } = await params;
+
+  const note = await fetchNoteById(id);
+  return {
+    title: `${note.title} | NoteHub`,
+    description: note.content,
+  };
 }
 
 export default async function NoteDetailsPage({

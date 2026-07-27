@@ -9,7 +9,6 @@
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  position: relative;
 }
 
 .item {
@@ -41,7 +40,7 @@
 
 .date {
   font-size: 14px;
-  color: #888;
+  color: #444;
   text-align: right;
 }
 
@@ -70,24 +69,4 @@
   text-decoration: underline;
   display: inline-block;
   background-color: transparent;
-}
-
-.closeButton {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-
-  width: 32px;
-  height: 32px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: none;
-  background: transparent;
-  cursor: pointer;
-
-  font-size: 24px;
-  line-height: 1;
 }
