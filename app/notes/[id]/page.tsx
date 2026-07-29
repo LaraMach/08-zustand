@@ -20,9 +20,26 @@ export async function generateMetadata({
   const { id } = await params;
 
   const note = await fetchNoteById(id);
+
+  const title = `${note.title} | NoteHub`;
+  const description = note.content;
+
   return {
-    title: `${note.title} | NoteHub`,
-    description: note.content,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://notehub.com/notes/${id}`,
+      images: [
+        {
+          url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+          width: 1200,
+          height: 630,
+          alt: "NoteHub",
+        },
+      ],
+    },
   };
 }
 
